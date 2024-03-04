@@ -5,6 +5,26 @@ import { GoScreenFull } from "react-icons/go";
 
 // eslint-disable-next-line react/prop-types
 const HeaderNavbar = ({ toggleSidebar }) => {
+  // Notification Tab
+
+  const handleFullScreen = () => {
+    const element = document.documentElement;
+    if (document.fullscreenElement) {
+      // If already in full-screen mode, exit full-screen
+      document.exitFullscreen();
+    } else {
+      // If not in full-screen mode, request full-screen
+      element.requestFullscreen().catch((err) => {
+        console.error("Failed to enter fullscreen mode:", err);
+      });
+    }
+  };
+
+  const handleClick = () => {
+    // Handle button click logic here
+    console.log("Btn working");
+  };
+
   return (
     <nav className="py-2 px-6 bg-[#f8f4f3] flex items-center shadow-md shadow-black/5 sticky top-0 left-0 z-30">
       <button
@@ -27,12 +47,18 @@ const HeaderNavbar = ({ toggleSidebar }) => {
         <a href="./pos.html">POS</a>
       </button>
 
-      <ul className="ml-auto flex items-center">
+      <ul className="ml-auto flex items-center ">
         <button>
-          <IoIosNotifications />
+          <IoIosNotifications
+            className="text-[24px] ml-3"
+            onClick={handleClick}
+          />
         </button>
         <button>
-          <GoScreenFull />
+          <GoScreenFull
+            className="text-[24px] ml-3"
+            onClick={handleFullScreen}
+          />
         </button>
         <li className="dropdown ml-3">
           <button type="button" className="dropdown-toggle flex items-center">

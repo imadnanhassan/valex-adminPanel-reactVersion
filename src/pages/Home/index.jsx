@@ -3,7 +3,7 @@ import LineChart from "../../ui/chart/LineChart";
 
 export default function HomePage() {
   return (
-    <section className="container mx-auto py-10">
+    <section className=" px-5 py-10">
       {/* total overview */}
       <div className="grid  sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 mb-6">
         <div className="bg-gradient-to-r from-[#33B1B1] to-[#94D6D6] rounded-lg shadow-md p-4">
@@ -84,11 +84,12 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* chart */}
       <div className="flex gap-5">
+        {/* chart */}
         <div className="w-[65%] px-3 bg-white py-5 rounded shadow-lg">
           <LineChart />
         </div>
+        {/* earning */}
         <div className="w-[35%]">
           <Earnings />
         </div>
